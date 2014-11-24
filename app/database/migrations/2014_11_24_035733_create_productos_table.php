@@ -14,7 +14,7 @@ class CreateProductosTable extends Migration {
 	{
 		Schema::create('productos',function($table) {
             $table->increments('id');
-            $table->integer('nombre');
+            $table->string('nombre',100);
             $table->text('descripcion');
             $table->integer('farmacia_id')->unsigned();
             $table->foreign('farmacia_id')->references('id')->on('farmacias')->onDelete('cascade');
