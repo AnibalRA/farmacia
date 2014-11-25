@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMunicipiosTable extends Migration {
+class CreateTipousuarioTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,9 @@ class CreateMunicipiosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('municipios', function($table) {
+		Schema::create('tipousuario', function($table) {
 			$table->increments('id');
-			$table->integer('nombre');
-            $table->integer('departamentos_id')->unsigned();
-            $table->foreign('departamentos_id')->references('id')->on('departamentos')->onDelete('cascade');
+			$table->string('definicion',10);
 			$table->softDeletes();
 			$table->timestamps();
 		});
@@ -29,7 +27,7 @@ class CreateMunicipiosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('municipios');
+		Schema::drop('tipousuario');
 	}
 
 }

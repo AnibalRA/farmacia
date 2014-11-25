@@ -21,6 +21,7 @@ class CreateFarmaciasTable extends Migration {
 			$table->string('email', 100)->unique();
             $table->integer('municipios_id')->unsigned();
             $table->foreign('municipios_id')->references('id')->on('municipios')->onDelete('cascade');
+            $table->boolean('activa');
 			$table->softDeletes();
 			$table->timestamps();
 		});

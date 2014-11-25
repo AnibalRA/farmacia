@@ -12,7 +12,7 @@ class CreateDetallesventaTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('detallesventa',function($table) {
+        Schema::create('detallesventa',function($table) {
             $table->increments('id');
             $table->integer('productos_id')->unsigned();
             $table->foreign('productos_id')->references('id')->on('productos')->onDelete('cascade');

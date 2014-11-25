@@ -18,10 +18,8 @@ class CreateUsuariosTable extends Migration {
             $table->foreign('farmacia_id')->references('id')->on('farmacias')->onDelete('cascade');
             $table->string('user',32);
             $table->string('password');
-            $table->integer('tipo_id');
             $table->integer('tipousuario_id')->unsigned();
             $table->foreign('tipousuario_id')->references('id')->on('tipousuario')->onDelete('cascade');
-
 			$table->softDeletes();
             $table->timestamps();
         });

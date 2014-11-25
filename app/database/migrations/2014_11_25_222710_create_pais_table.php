@@ -14,7 +14,7 @@ class CreatePaisTable extends Migration {
 	{
 		Schema::create('pais', function($table) {
 			$table->increments('id');
-			$table->integer('nombre');
+			$table->string('nombre',10);
 			$table->softDeletes();
 			$table->timestamps();
 		});
@@ -27,7 +27,7 @@ class CreatePaisTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('pais');
+        Schema::drop('pais');
 	}
 
 }
