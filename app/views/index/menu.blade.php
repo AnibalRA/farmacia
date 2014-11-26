@@ -14,7 +14,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nombre<strong class="caret"></strong></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuración<strong class="caret"></strong></a>
                 <ul class="dropdown-menu">
                     <li>{{ HTML::link('usuario', 'Usuarios'); }}</li>
                     <li>{{ HTML::link('tipo_usuario', 'Tipos de Usuarios'); }}</li>
