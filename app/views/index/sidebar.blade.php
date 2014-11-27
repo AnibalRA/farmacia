@@ -26,5 +26,5 @@
     </li>
     <li><a href="proveedores"><i class="glyphicon glyphicon-user"></i> Proveedores</a></li>
     <li><a href="compras"><i class="glyphicon glyphicon-shopping-cart"></i> Compras</a></li>
-    <li><a href="clientes"><i class="glyphicon glyphicon-user"></i> Clientes</a></li>
+    <li><a href="#clientes"><i class="glyphicon glyphicon-user"></i> Clientes</a></li>
 </ul>

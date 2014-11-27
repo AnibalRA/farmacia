@@ -4,3 +4,9 @@
 <script src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 <script src="assets/js/script.js"></script>
 
+
+{{Html::script('assets/js/vendor/angular.min.js')}}
+{{Html::script('assets/js/vendor/angular-route.min.js')}}
+{{Html::script('assets/js/controllers.js')}}
+{{Html::script('assets/js/app.js')}}
+

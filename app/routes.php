@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function() { 
+Route::any('/', function() { 
     return View::make('inicio');
 });
 
@@ -23,3 +23,7 @@ Route::group(array('prefix' => 'api'), function() {
     Route::resource('compras','ComprasController');
     Route::resource('clientes','clientesController');
 });
+
+Route::any('{path?}', function($path) 
+	{ return Redirect::to('/');});
+

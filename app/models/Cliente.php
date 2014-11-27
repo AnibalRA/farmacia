@@ -22,6 +22,7 @@ class Cliente extends Eloquent {
             {
                 $this->fill($datos);
                 $this->save();
+                return true;
             }
 
             return false;

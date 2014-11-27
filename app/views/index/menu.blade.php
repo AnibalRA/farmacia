@@ -11,16 +11,16 @@
     </div>
     <div class="collapse navbar-collapse">
         
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" ng-controller='menuLeftController'>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <span class="glyphicon glyphicon-cog"> </span> Configuración
                     <strong class="caret"></strong>
                 </a>
                 <ul class="dropdown-menu">
-                    <li>{{ HTML::link('farmacia', 'Mi Farmacia'); }}</li>
+                    <li>{{ HTML::link('farmacia', 'Mi Farmacia'); }} </li>
                     <li>{{ HTML::link('sucursal', 'Sucursales'); }}</li>
-                    <li>{{ HTML::link('perfil', 'Mi Perfil'); }}</li>
+                    <li> <a href="!#clientes">asdfsd</a></li>
                     <li class="divider"></li>
                     <li>{{ HTML::link('/logout', 'Salir'); }}</li>
                 </ul>

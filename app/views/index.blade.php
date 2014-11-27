@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" ng-app="farmacia">
     <head>
 	   <meta charset="utf-8">
 	   <meta name="description" content="Sistema de farmacia">
@@ -20,8 +20,11 @@
                     @include("index/sidebar")
                 </div>
                 <div class="col-md-10">
-                    {{--CONTENIDO--}}
-                    @yield("content")
+
+                   <!--  {{--CONTENIDO--}}
+                    @yield("content") -->
+                    <ng-view>  </ng-view>
+
                 </div>
             </div>
         </div>
