@@ -19,7 +19,7 @@
                 <div class="col-md-2">
                     @include("index/sidebar")
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-10">
                     {{--CONTENIDO--}}
                     @yield("content")
                 </div>

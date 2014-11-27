@@ -12,6 +12,6 @@
 .panel-collapse {
     list-style: none;
 }
-.caret {
+.nav-stacked > li > a > .caret {
     float: right;
 }
