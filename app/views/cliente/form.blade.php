@@ -8,37 +8,37 @@
             <div class="panel-heading">Formulario De Cliente</div>
             <div class="panel-body">
                 <div class="form-group">
-                    {{ Form::label('nombre', 'Nombre Completo *', array('class' => 'control-label col-md-4 col-sm-4')) }}
+                    <label class="control-label col-md-4 col-sm-4" for="nombre">Nombre Completo *</label>
                     <div class="col-md-7 col-sm-7 input-group">
                         <span class="input-group-addon glyphicon glyphicon-font"> </span>
-                        {{ Form::text('nombre', null, array('placeholder' => 'Nombre Completo', 'class' => 'form-control')) }}
+                        <input type="text" class="form-control" placeholder="Nombre Completo" id="nombre">
                         @if( $errors->has('nombre') )
                         <span class="input-group-addon glyphicon glyphicon-remove alert-danger"> </span>
                         @endif
                     </div>
                 </div>
                 <div class="form-group">
-                    {{ Form::label('telefono', 'Teléfono', array('class' => 'control-label col-md-4 col-sm-4')) }}
+                    <label class="control-label col-md-4 col-sm-4" for="telefono">Teléfono</label>
                     <div class="col-md-7 col-sm-7 input-group">
                         <span class="input-group-addon glyphicon glyphicon-envelope"> </span>
-                        {{ Form::text('telefono', null, array('placeholder' => 'Teléfono', 'class' => 'form-control')) }}
+                        <input type="text" class="form-control" placeholder="Teléfono" id="telefono">
                     </div>
                 </div>
                 <div class="form-group">
-                    {{ Form::label('direccion', 'Dirección *', array('class' => 'control-label col-md-4 col-sm-4')) }}
+                    <label class="control-label col-md-4 col-sm-4" for="dirección">Dirección *</label>
                     <div class="col-md-7 col-sm-7 input-group">
                         <span class="input-group-addon glyphicon glyphicon-envelope"> </span>
-                        {{ Form::textarea('direccion', null, array('placeholder' => 'Dirección', 'rows' => '5', 'class' => 'form-control')) }}
+                        <textarea rows="5" class="form-control" placeholder="Dirección" id="direccion"></textarea>
                         @if( $errors->has('direccion') )
                         <span class="input-group-addon glyphicon glyphicon-remove alert-danger"> </span>
                         @endif
                     </div>
                 </div>
                 <div class="form-group">
-                    {{ Form::label('email', 'Correo Electrónico *', array('class' => 'control-label col-md-4 col-sm-4')) }}
+                    <label class="control-label col-md-4 col-sm-4" for="email">Correo Electrónico *</label>
                     <div class="col-md-7 col-sm-7 input-group">
                         <span class="input-group-addon glyphicon glyphicon-envelope"> </span>
-                        {{ Form::text('email', null, array('placeholder' => 'Correo Electrónico', 'class' => 'form-control')) }}
+                        <input type="text" class="form-control" placeholder="Correo Electrónico" id="email">
                         @if( $errors->has('email') )
                         <span class="input-group-addon glyphicon glyphicon-remove alert-danger"> </span>
                         @endif
