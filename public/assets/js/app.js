@@ -1,5 +1,10 @@
 
-var app = angular.module('farmacia', ['ngRoute','farmaciaControllers']).
+var app = angular.module('farmacia', [
+			'ngRoute',
+			'farmaciaControllers',
+			'farmaciaServices',
+			'farmaciaDirectives'
+			]).
 
 
 		config(['$routeProvider', function ($routeProvider){

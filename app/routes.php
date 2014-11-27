@@ -20,7 +20,8 @@ Route::group(array('prefix' => 'api'), function() {
     Route::resource('perfil','UserController');
     Route::resource('proveedores','ProveedoresController');
     Route::resource('compras','ComprasController');
-    Route::resource('clientes','ClienteController');
+
+    Route::resource('clientes','clienteController');
 });
 
 Route::any('{path?}', function($path) { 

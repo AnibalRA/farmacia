@@ -15,7 +15,7 @@ class Farmacia extends Eloquent {
 		'municipios_id'
 		);
 
-
+ 
 	/* Guardar */
 
         public function guardar($datos) 

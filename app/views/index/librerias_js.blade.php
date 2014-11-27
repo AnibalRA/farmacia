@@ -8,5 +8,7 @@
 {{Html::script('assets/js/vendor/angular.min.js')}}
 {{Html::script('assets/js/vendor/angular-route.min.js')}}
 {{Html::script('assets/js/controllers.js')}}
+{{Html::script('assets/js/services.js')}}
+{{Html::script('assets/js/directives.js')}}
 {{Html::script('assets/js/app.js')}}
 
