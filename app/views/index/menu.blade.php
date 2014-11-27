@@ -7,25 +7,25 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">Logo</a>
+        <p class="navbar-text">Nombre Farmacia -- Nombre Usuario</p>
     </div>
     <div class="collapse navbar-collapse">
+        
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-home"></span> Nombre Farmacia</a></li>
-            <li><a href="javascript:void(0)">-</a></li>
-            <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-user"></span> Nombre Usuario</a></li>
             <li class="dropdown">
-                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <span class="glyphicon glyphicon-cog"> </span>
                     <strong class="caret"></strong>
                 </a>
                 <ul class="dropdown-menu">
-                    <li>{{ HTML::link('usuario', 'Usuarios'); }}</li>
-                    <li>{{ HTML::link('tipo_usuario', 'Tipos de Usuarios'); }}</li>
-                    <li>{{ HTML::link('farmacia', 'Farmacia'); }}</li>
+                    <li>{{ HTML::link('farmacia', 'Mi Farmacia'); }}</li>
+                    <li>{{ HTML::link('sucursal', 'Sucursales'); }}</li>
+                    <li>{{ HTML::link('perfil', 'Mi Perfil'); }}</li>
                     <li class="divider"></li>
-                    <li>{{ HTML::link('/logout', 'Cerrar Sesión'); }}</li>
+                    <li>{{ HTML::link('/logout', 'Salir'); }}</li>
                 </ul>
             </li>
         </ul>
     </div>
 </nav>
+
