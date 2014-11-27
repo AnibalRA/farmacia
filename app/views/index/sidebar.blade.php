@@ -26,7 +26,6 @@
     </li>
     <li><a href="proveedores"><i class="glyphicon glyphicon-user"></i> Proveedores</a></li>
     <li><a href="compras"><i class="glyphicon glyphicon-shopping-cart"></i> Compras</a></li>
-<<<<<<< HEAD
     <li>
         <a href="#collapseCuatro" data-toggle="collapse" data-parent="#accordion">
             <i class="glyphicon glyphicon-user"></i> Clientes<strong class="caret"></strong>
@@ -37,7 +36,5 @@
             <hr>
         </ul>
     </li>
-=======
     <li><a href="#clientes"><i class="glyphicon glyphicon-user"></i> Clientes</a></li>
->>>>>>> origin/master
 </ul>

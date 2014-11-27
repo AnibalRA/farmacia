@@ -1,5 +1,4 @@
 @extends('index')
-<<<<<<< HEAD
 @section('content')
 <h3><i class="glyphicon glyphicon-dashboard"></i> Historial</h3>
 <hr/>
@@ -46,5 +45,3 @@
     </div>
 </div>
 @stop
-=======
->>>>>>> origin/master

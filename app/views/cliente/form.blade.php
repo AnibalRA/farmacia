@@ -12,21 +12,38 @@
                     <div class="col-md-7 col-sm-7 input-group">
                         <span class="input-group-addon glyphicon glyphicon-font"> </span>
                         {{ Form::text('nombre', null, array('placeholder' => 'Nombre Completo', 'class' => 'form-control')) }}
-                            @if( $errors->has('nombre') )
-                            <span class="input-group-addon glyphicon glyphicon-remove alert-danger"> </span>
+                        @if( $errors->has('nombre') )
+                        <span class="input-group-addon glyphicon glyphicon-remove alert-danger"> </span>
                         @endif
                     </div>
                 </div>
-<div class="form-group">
-                            {{ Form::label('email', 'Correo Electrónico *', array('class' => 'control-label col-md-4 col-sm-4')) }}
-                            <div class="col-md-7 col-sm-7 input-group">
-                                <span class="input-group-addon glyphicon glyphicon-envelope"> </span>
-                                {{ Form::text('email', null, array('placeholder' => 'Correo Electrónico', 'class' => 'form-control')) }}
-                                @if( $errors->has('email') )
-                                    <span class="input-group-addon glyphicon glyphicon-remove alert-danger"> </span>
-                                @endif
-                            </div>
-                        </div>
+                <div class="form-group">
+                    {{ Form::label('telefono', 'Teléfono', array('class' => 'control-label col-md-4 col-sm-4')) }}
+                    <div class="col-md-7 col-sm-7 input-group">
+                        <span class="input-group-addon glyphicon glyphicon-envelope"> </span>
+                        {{ Form::text('telefono', null, array('placeholder' => 'Teléfono', 'class' => 'form-control')) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ Form::label('direccion', 'Dirección *', array('class' => 'control-label col-md-4 col-sm-4')) }}
+                    <div class="col-md-7 col-sm-7 input-group">
+                        <span class="input-group-addon glyphicon glyphicon-envelope"> </span>
+                        {{ Form::textarea('direccion', null, array('placeholder' => 'Dirección', 'rows' => '5', 'class' => 'form-control')) }}
+                        @if( $errors->has('direccion') )
+                        <span class="input-group-addon glyphicon glyphicon-remove alert-danger"> </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ Form::label('email', 'Correo Electrónico *', array('class' => 'control-label col-md-4 col-sm-4')) }}
+                    <div class="col-md-7 col-sm-7 input-group">
+                        <span class="input-group-addon glyphicon glyphicon-envelope"> </span>
+                        {{ Form::text('email', null, array('placeholder' => 'Correo Electrónico', 'class' => 'form-control')) }}
+                        @if( $errors->has('email') )
+                        <span class="input-group-addon glyphicon glyphicon-remove alert-danger"> </span>
+                        @endif
+                    </div>
+                </div>
             </div>
         </div>
         </div>
