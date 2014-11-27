@@ -1,9 +1,7 @@
-@extends('index')
-<<<<<<< HEAD
-@section('content')
+
 <h3><i class="glyphicon glyphicon-dashboard"></i> Historial</h3>
 <hr/>
-<div class="row">
+<div class="row" ng-controller='inicioController'>
     <div class="col-md-3">
         <div class="well">Ventas del Mes<span class="badge pull-right">20</span></div>
         <div class="clearfix"></div>
@@ -23,7 +21,7 @@
         <div class="panel panel-default">
 			<div class="panel-heading">Últimas Ventas</div>
             <div class="panel-body">
-                <table class="table table-striped">
+                <table id="example" class="table table-striped">
                     <thead>
                         <tr>
                             <th>Cliente</th>
@@ -45,6 +43,3 @@
         </div>
     </div>
 </div>
-@stop
-=======
->>>>>>> origin/master

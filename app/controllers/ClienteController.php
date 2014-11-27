@@ -9,8 +9,10 @@ class ClienteController extends \BaseController {
 	 */
 	public function index()
 	{
-        $cliente = Cliente::orderBy('created_at','dsc');
-        return View::make('cliente.list', compact('cliente'));
+        $clientes = Cliente::where('farmacia_id', 1)
+        				->orderBy('created_at','dsc')
+        				->get();
+        return Response::json($clientes, 200);
 	}
 
 
@@ -35,6 +37,16 @@ class ClienteController extends \BaseController {
 	public function store()
 	{
 		//
+
+		$data = Input::all();
+
+		$cliente = new Cliente;
+
+		if($cliente->guardar($data))
+			return Response::json($cliente,201);
+
+		return Response::json($cliente->errores, 200);
+
 	}
 
 
