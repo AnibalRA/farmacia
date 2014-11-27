@@ -8,13 +8,20 @@
         @include("index/librerias_css")
     </head>
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     @include("index/menu")
-                    <br/>
-                    <br/>
-                    <br/>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <div class="row">
+                <div class="col-md-2">
+                    @include("index/sidebar")
+                </div>
+                <div class="col-md-9">
                     {{--CONTENIDO--}}
                     @yield("content")
                 </div>

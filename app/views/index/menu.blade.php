@@ -14,7 +14,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <span class="glyphicon glyphicon-cog"> </span>
+                    <span class="glyphicon glyphicon-cog"> </span> Configuración
                     <strong class="caret"></strong>
                 </a>
                 <ul class="dropdown-menu">
