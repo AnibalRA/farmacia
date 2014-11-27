@@ -14,9 +14,7 @@
                     @include("index/menu")
                 </div>
             </div>
-            <br/>
-            <br/>
-            <br/>
+            <br/><br/><br/>
             <div class="row">
                 <div class="col-md-2">
                     @include("index/sidebar")
