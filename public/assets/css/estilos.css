@@ -1,6 +1,7 @@
 .navbar {
     background-color: #000000;
 }
+
 .navbar .navbar-nav > li > a:hover,
 .dropdown-toggle:active, .open .dropdown-toggle,
 .navbar .navbar-nav > .dropdown > .dropdown-toggle:hover,
@@ -9,9 +10,15 @@
     background:#000000 !important; 
     color:#FFF !important;
 }
+
 .panel-collapse {
     list-style: none;
 }
+
 .nav-stacked > li > a > .caret {
     float: right;
 }
+
+.input-group-addon{ top: 0; }
+
+.control-label, dd label { font-weight: normal; }

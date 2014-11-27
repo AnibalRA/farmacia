@@ -22,7 +22,7 @@
         <div class="panel panel-default">
 			<div class="panel-heading">Últimas Ventas</div>
             <div class="panel-body">
-                <table id="example" class="table table-striped">
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>Cliente</th>

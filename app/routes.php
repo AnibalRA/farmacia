@@ -10,7 +10,6 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
 Route::get('/', function() { 
     return View::make('inicio');
 });
@@ -21,5 +20,5 @@ Route::group(array('prefix' => 'api'), function() {
     Route::resource('perfil','UserController');
     Route::resource('proveedores','ProveedoresController');
     Route::resource('compras','ComprasController');
-    Route::resource('clientes','clientesController');
+    Route::resource('clientes','ClienteController');
 });

@@ -1,5 +1,5 @@
 $(document).ready(function(e){
-    $('#example').dataTable({
+    $('.table .table-striped').dataTable({
         "language": {
             "sZeroRecords":   "No se encontraron resultados",
             "sEmptyTable":    "Ningún dato disponible en esta tabla",
