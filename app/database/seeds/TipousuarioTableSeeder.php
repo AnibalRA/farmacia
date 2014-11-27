@@ -1,5 +1,5 @@
 <?php
-class TipousuariosTableSeeder extends Seeder 
+class TipousuarioTableSeeder extends Seeder 
 {
     public function run() 
     {
@@ -10,7 +10,11 @@ class TipousuariosTableSeeder extends Seeder
                  ];
         
         for($f=0; $f<count($tipos); $f++) {
+<<<<<<< HEAD:app/database/seeds/TipousuariosTableSeeder.php
             TipoUsuarios::create(array(
+=======
+            Tipousuario::create(array(
+>>>>>>> origin/master:app/database/seeds/TipousuarioTableSeeder.php
                 "definicion" => $tipos[$f]
             ));    
         }

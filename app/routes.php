@@ -11,7 +11,15 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index');
+Route::get('/', function() { 
+    return View::make('inicio');
+});
+
+Route::group(array('prefix' => 'api'), function() {
+    Route::resource('farmacia','SucursalesController');
+    Route::resource('sucursales','FarmaciaController');
+    Route::resource('perfil','UserController');
+    Route::resource('proveedores','ProveedoresController');
+    Route::resource('compras','ComprasController');
+    Route::resource('clientes','clientesController');
 });
