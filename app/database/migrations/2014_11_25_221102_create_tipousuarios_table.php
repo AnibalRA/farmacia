@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTipousuarioTable extends Migration {
+class CreateTipousuariosTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateTipousuarioTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('tipousuario', function($table) {
+		Schema::create('tipousuarios', function($table) {
 			$table->increments('id');
 			$table->string('definicion',10);
 			$table->softDeletes();

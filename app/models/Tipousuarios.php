@@ -1,4 +1,4 @@
 <?php
-class Tipousuarios extends Eloquent {
-    
+class TipoUsuarios extends Eloquent {
+    protected $table = "tipousuarios";
 }

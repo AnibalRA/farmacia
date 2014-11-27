@@ -10,7 +10,7 @@ class TipousuariosTableSeeder extends Seeder
                  ];
         
         for($f=0; $f<count($tipos); $f++) {
-            Tipousuarios::create(array(
+            TipoUsuarios::create(array(
                 "definicion" => $tipos[$f]
             ));    
         }

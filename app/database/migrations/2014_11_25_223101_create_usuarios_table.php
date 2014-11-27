@@ -12,14 +12,14 @@ class CreateUsuariosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('usuarios',function($table){
+		Schema::create('users',function($table){
             $table->increments('id');
             $table->integer('farmacia_id')->unsigned();
             $table->foreign('farmacia_id')->references('id')->on('farmacias')->onDelete('cascade');
             $table->string('user',32);
             $table->string('password');
-            $table->integer('tipousuario_id')->unsigned();
-            $table->foreign('tipousuario_id')->references('id')->on('tipousuario')->onDelete('cascade');
+            $table->integer('tipousuarios_id')->unsigned();
+            $table->foreign('tipousuarios_id')->references('id')->on('tipousuarios')->onDelete('cascade');
 			$table->softDeletes();
             $table->timestamps();
         });
@@ -32,7 +32,7 @@ class CreateUsuariosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('usuarios');
+		Schema::drop('users');
 	}
 
 }
