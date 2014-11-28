@@ -1,0 +1,16 @@
+<add-laboratorio></add-laboratorio>
+<button class="btn btn-success" ng-click="newLaboratorio()">Add</button>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<td>Nombre</td>
+            <td>Laboratorio desde</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="laboratorio in laboratorios">
+			<td>{{laboratorio.nombre}}</td>
+			<td>{{laboratorio.created_at | date:'medium'}}</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,18 @@
+<add-usuario></add-usuario>
+<button class="btn btn-success" ng-click="newUser()">Add</button>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<td>Usuario</td>
+			<td>Tipo de Usuario</td>
+			<td>Usuario desde</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="user in users">
+			<td>{{user.user}}</td>
+			<td>{{user.tipousuario_id}}</td>
+			<td>{{user.created_at | date:'medium'}}</td>
+		</tr>
+	</tbody>
+</table>
