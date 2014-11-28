@@ -18,7 +18,7 @@ Route::group(array('prefix' => 'api'), function() {
     Route::resource('farmacia','SucursalesController');
     Route::resource('sucursales','FarmaciaController');
     Route::resource('perfil','UserController');
-    Route::resource('proveedores','ProveedoresController');
+    Route::resource('proveedores','ProveedorController');
     Route::resource('compras','ComprasController');
 
     Route::resource('clientes','clienteController');
