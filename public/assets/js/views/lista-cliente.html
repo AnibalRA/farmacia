@@ -2,6 +2,7 @@
 <!-- Deafult Table -->
 <div class="block-area" id="defaultStyle">
 	<div class="table-responsive overflow">
+		<h3 class="block-title"><input type="text" class="main-search pull-left" ng-model='search'></h3>
 		<table class="table table-bordered table-hover tile">
 			<thead>
 				<tr>
@@ -10,18 +11,18 @@
 					<td>Dirección</td>
 					<td>Teléfono</td>	
 					<td>Email</td>
-					<td>Cliente desde</td>
 				</tr>
 			</thead>
 			<tbody >
-				<tr ng-repeat="cliente in clientes">
-					<td></td>
-					<td>{{cliente.nombre}}</td>
-					<td>{{cliente.direccion}}</td>
-					<td>{{cliente.telefono}}</td>
-					<td>{{cliente.email}}</td>
-					<td>{{cliente.created_at }}</td>
-				</tr>
+				<div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
+					<tr ng-repeat="cliente in clientes |filter:search:strict">
+						<td></td>
+						<td>{{cliente.nombre}}</td>
+						<td>{{cliente.direccion}}</td>
+						<td>{{cliente.telefono}}</td>
+						<td>{{cliente.email}}</td>
+					</tr>
+				</div>
 			</tbody>
 		</table>
 	</div>

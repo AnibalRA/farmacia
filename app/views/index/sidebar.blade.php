@@ -35,6 +35,9 @@
              <div class="s-widget-body" ng-controller="proveedorController">
                 <a id="news-feed" href="" ng-click='open()'>Nuevo Proveedor</a>
             </div>
+             <div class="s-widget-body" ng-controller="productoController">
+                <a id="news-feed" href="" ng-click='open()'>Nuevo Producto</a>
+            </div>
 
         </div>
         
@@ -98,6 +101,11 @@
             </a>
         </li>
         <li>
+            <a class="sa-side-table" href="#productos">
+                <span class="menu-item">Productos</span>
+            </a>
+        </li>
+        <li>
             <a class="sa-side-typography" href="#clientes">
                 <span class="menu-item">Clientes</span>
             </a>
@@ -105,11 +113,6 @@
         <li>
             <a class="sa-side-widget" href="#proveedores">
                 <span class="menu-item">Proveedores</span>
-            </a>
-        </li>
-        <li>
-            <a class="sa-side-table" href="tables.html">
-                <span class="menu-item">Tables</span>
             </a>
         </li>
         <li class="dropdown">

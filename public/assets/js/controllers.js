@@ -11,17 +11,8 @@ angular.module('farmaciaControllers', []).
 	['clientesService', '$scope', '$log', '$modal', 
 	function (clientesService, $scope, $log, $modal){
 		$scope.clientes = [];
-		$scope.cliente = {
-			// 'id'		: '1',
-			'nombre' 	: 'Rene Orlando Sanabria',
-			'direccion' : 'Caserios el cobano',
-			'telefono'	: '7746-1787',
-			'email'		: 'rsanabria@hotmail.es',
-			'farmacia_id' : '1',
-
-		};
 		$scope.alerts = []
-
+		$scope.cliente = {};
 
 		clientesService.all().then(function(data){
 				$scope.clientes = data;
@@ -66,6 +57,7 @@ angular.module('farmaciaControllers', []).
 		 $scope.closeAlert = function(index) {
 		   $scope.alerts.splice(index, 1);
 		 };
+		 // $scope.loadMore()
 	}])
 
 	.controller('proveedorController',
@@ -93,6 +85,12 @@ angular.module('farmaciaControllers', []).
 			
 	}])
 
+	.controller('productoController', ['productoService','$scope', function(productoService, $scope){
+		$scope.productos = [];
+		productoService.all().then(function (data){
+			$scope.productos = data;
+		})
+	}])
 
 
 

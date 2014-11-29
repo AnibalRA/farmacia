@@ -11,7 +11,9 @@ class ClienteController extends \BaseController {
 	{
         $clientes = Cliente::where('farmacia_id', 1)
         				->orderBy('created_at','dsc')
+        				// ->paginate(20);
         				->get();
+        				// dd($clientes);
         return Response::json($clientes, 200);
 	}
 

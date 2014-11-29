@@ -31,8 +31,8 @@ angular.module('farmaciaServices',[])
 		return defer.promise;
 	}
 	return {
-		all:all,
-		add:add
+		all		: all,
+		add		: add
 	}
 }])
 
@@ -51,5 +51,41 @@ angular.module('farmaciaServices',[])
 
 	return {
 		all:all
+	}
+}])
+
+.factory('productoService',['$http', '$q', function ($http, $q){
+
+	function all(){
+		defer = $q.defer();
+
+		$http.get('api/productos')
+			.success(function (data){
+				defer.resolve(data);
+			})
+			.error(function (data){
+				defer.reject();
+			})
+		return defer.promise; 
+	}
+
+	function add($producto){
+		defer = $q.defer();
+		$http.post('api/productos', $producto)
+			.success(function (data, code){
+				if(code==201)
+					defer.resolve(data);
+				else
+					defer.reject(data);
+				
+			})
+			.error( function (data){
+				defer.reject(JSON.parse({'type':'warning', 'msg':'no hay conexión al servidor'}));
+			})
+		return defer.promise;
+	}
+	return {
+		all		: all,
+		add		: add
 	}
 }])

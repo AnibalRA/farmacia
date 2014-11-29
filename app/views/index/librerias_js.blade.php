@@ -5,6 +5,7 @@
 
 {{Html::style('assets/css/loading-bar.css')}}
 {{Html::script('assets/js/vendor/angular.min.js')}}
+{{Html::script('assets/js/vendor/infinite-scroll.min.js')}}
 {{Html::script('assets/js/vendor/angular-modal.js')}}
 {{Html::script('assets/js/vendor/loading-bar.js')}}
 {{Html::script('assets/js/vendor/angular-route.min.js')}}
@@ -14,5 +15,4 @@
 {{Html::script('assets/js/app.js')}}
 
 
-{{Html::script('assets/js/script.js')}}
 

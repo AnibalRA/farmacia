@@ -22,6 +22,9 @@ Route::group(array('prefix' => 'api'), function() {
     Route::resource('compras','ComprasController');
 
     Route::resource('clientes','clienteController');
+
+    //ruta para los productos
+    Route::get("productos", 'ProductoController@all');
 });
 
 Route::any('{path?}', function($path) { 
