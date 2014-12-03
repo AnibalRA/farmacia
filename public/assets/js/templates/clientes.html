@@ -1,22 +1,13 @@
-<add-cliente></add-cliente>
-<button class="btn btn-success" ng-click="newCliente()">Add</button>
-<table class="table table-hover">
-	<thead>
-		<tr>
-			<td>Nombre</td>
-			<td>Dirección</td>
-			<td>Teléfono</td>	
-			<td>Correo Electrónico</td>	
-			<td>Cliente desde</td>
-		</tr>
-	</thead>
-	<tbody>
-		<tr ng-repeat="cliente in clientes">
-			<td>{{cliente.nombre}}</td>
-			<td>{{cliente.direccion}}</td>
-			<td>{{cliente.telefono}}</td>
-			<td>{{cliente.email}}</td>
-			<td>{{cliente.created_at | date:'medium'}}</td>
-		</tr>
-	</tbody>
-</table>
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb hidden-xs">
+        <li>Inicio</li>
+        <li>Clientes</li>
+        <li class="active">Datos</li>
+    </ol>
+<a class="btn btn-primary m-r-5 pull-right" ng-click="open()">Agregar</a>
+</h4>
+<hr class="whiter" />
+<h4 class="page-title">
+	CLIENTES	
+</h4> 
+<lista-cliente></lista-cliente> 

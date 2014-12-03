@@ -11,7 +11,9 @@ class ClienteController extends \BaseController {
 	{
         $clientes = Cliente::where('farmacia_id', 1)
         				->orderBy('created_at','dsc')
+        				// ->paginate(20);
         				->get();
+        				// dd($clientes);
         return Response::json($clientes, 200);
 	}
 
@@ -44,8 +46,20 @@ class ClienteController extends \BaseController {
 
 		if($cliente->guardar($data))
 			return Response::json($cliente,201);
-
-		return Response::json($cliente->errores, 200);
+		$errores = [];
+		foreach ($cliente->errores->all() as $error) {
+			// foreach ($error[0] as $err) {
+			// 	# code...
+			// 	$errores = $err;
+			// }
+			$errores[] = array(
+					'type' => "danger",
+					'msg'	=> $error
+				);
+		}
+		
+		// return Response::json($cliente->errores, 200);
+		return Response::json($errores, 200);
 
 	}
 

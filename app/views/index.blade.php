@@ -7,27 +7,42 @@
 	   <title>Farmacia</title>
         @include("index/librerias_css")
     </head>
-    <body>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    @include("index/menu")
-                </div>
-            </div>
-            <br/><br/><br/>
-            <div class="row">
-                <div class="col-md-2">
-                    @include("index/sidebar")
-                </div>
-                <div class="col-md-10">
+    <body  id="skin-blur-lights">
+        <section id="main" class="p-relative" role="main">
+                        @include("index/menu")                 
+                        @include("index/sidebar")        
+            <!-- Content -->
+            <section id="content" class="container">
+               <ng-view>  
+               
 
-                   <!--  {{--CONTENIDO--}}
-                    @yield("content") -->
-                    <ng-view>  </ng-view>
+                        </ng-view> 
+            </section>
 
+            @include("index/librerias_js")
+        </section>
+
+
+        <script type="text/ng-template" id="addClienteModal.html">
+        <!-- aqui hay que agregar todos los modales para poderlos usar desde el inicio -->
+            <form ng-submit= "guardar()">
+                <div class="modal-header text-center">
+                    <h3 class="modal-title">Nuevo Cliente</h3>
                 </div>
-            </div>
-        </div>
-        @include("index/librerias_js")
+                <div class="modal-body">    
+                    <alerts> </alerts>
+                   <add-cliente> </add-cliente>
+                </div>
+                <div class="modal-footer text-center">
+                    <input type='submit'  class="btn btn-primary" value="Guardar" />
+                </div>
+            </form>
+        </script>
+
+
+        <script type="text/ng-template" id="addProveedorModal.html">
+        <!-- Alerta -->
+            <add-proveedor> </add-proveedor>
+        </script>
     </body>
 </html>

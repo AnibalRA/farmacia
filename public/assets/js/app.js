@@ -1,6 +1,8 @@
 
 var app = angular.module('farmacia', [
 			'ngRoute',
+			'ui.bootstrap',
+			'infinite-scroll',
 			'farmaciaControllers',
 			'farmaciaServices',
 			'farmaciaDirectives'
@@ -16,6 +18,14 @@ var app = angular.module('farmacia', [
 				.when('/clientes',{
 					controller:'clienteController',
 					templateUrl: 'assets/js/templates/clientes.html'
+				})
+				.when('/proveedores',{
+					controller:'proveedorController',
+					templateUrl: 'assets/js/templates/proveedor.html'
+				})
+				.when('/productos',{
+					controller:'productoController',
+					templateUrl: 'assets/js/templates/productos.html'
 				})
 				.otherwise({
 					redirectTo: '/'
