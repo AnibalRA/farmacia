@@ -10,7 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::any('/', function() { 
+Route::any('/', function() {
     return View::make('inicio');
 });
 
@@ -20,6 +20,8 @@ Route::group(array('prefix' => 'api'), function() {
     Route::resource('perfil','UserController');
     Route::resource('proveedores','ProveedorController');
     Route::resource('compras','ComprasController');
+    Route::resource('pFarmacia','pFarmaciaController');
+    Route::resource('pSucursal','pSucursalController');
 
     Route::resource('clientes','clienteController');
 
@@ -27,6 +29,6 @@ Route::group(array('prefix' => 'api'), function() {
     Route::get("productos", 'ProductoController@all');
 });
 
-Route::any('{path?}', function($path) { 
+Route::any('{path?}', function($path) {
     return Redirect::to('/');
 });
