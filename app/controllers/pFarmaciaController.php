@@ -9,10 +9,10 @@ class pFarmaciaController extends \BaseController {
 	 */
 	public function index()
 	{
-        $farmacias = Farmacia::where('farmacia_id', Auth::user()->)
+        $pfarmacia = Pfarmacia::where('farmacia_id', Auth::user()->farmacia->id)
             ->orderBy('created_at','dsc')
             ->get();
-        return Response::json($farmacias, 200);
+        return Response::json($pfarmacias, 200);
 	}
 
 
