@@ -2,7 +2,7 @@
 class ProductoSucursal extends Eloquent {
     use SoftDeletingTrait;
 
-    protected $table = 'producto_sucursal';
+    protected $table = 'productossucursal';
     public $errores;
     protected $softDelete = true;
     protected $fillable = array(
