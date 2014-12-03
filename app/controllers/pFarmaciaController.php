@@ -1,6 +1,6 @@
 <?php
 
-class FarmaciaController extends \BaseController {
+class pFarmaciaController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,9 +9,9 @@ class FarmaciaController extends \BaseController {
 	 */
 	public function index()
 	{
-        $farmacias = Farmacia::where('farmacia_id', 1)
-        				->orderBy('created_at','dsc')
-        				->get();
+        $farmacias = Farmacia::where('farmacia_id', Auth::user()->)
+            ->orderBy('created_at','dsc')
+            ->get();
         return Response::json($farmacias, 200);
 	}
 
@@ -23,7 +23,7 @@ class FarmaciaController extends \BaseController {
 	 */
 	public function create()
 	{
-        //
+		//
 	}
 
 
@@ -34,18 +34,7 @@ class FarmaciaController extends \BaseController {
 	 */
 	public function store()
 	{
-		$data = Input::all();
-		$farmacia = new Farmacia;
-		if($farmacia->guardar($data))
-			return Response::json($farmacia,201);
-		$errores = [];
-		foreach ($farmacia->errores->all() as $error) {
-			$errores[] = array(
-					'type' => "danger",
-					'msg'	=> $error
-				);
-		}
-		return Response::json($errores, 200);
+		//
 	}
 
 
@@ -57,7 +46,7 @@ class FarmaciaController extends \BaseController {
 	 */
 	public function show($id)
 	{
-        //
+		//
 	}
 
 
@@ -69,7 +58,7 @@ class FarmaciaController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-        //
+		//
 	}
 
 
@@ -81,18 +70,7 @@ class FarmaciaController extends \BaseController {
 	 */
 	public function update($id)
 	{
-        $data = Input::all();
-		$farmacia = Farmacia::find($id);
-		if($farmacia->guardar($data))
-			return Response::json($farmacia,202);
-		$errores = [];
-		foreach ($farmacia->errores->all() as $error) {
-			$errores[] = array(
-					'type' => "danger",
-					'msg'	=> $error
-				);
-		}
-		return Response::json($errores, 200);
+		//
 	}
 
 
@@ -104,9 +82,7 @@ class FarmaciaController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-        $farmacia = Farmacia::find($id);
-		$farmacia->delete();
-        return Response::json($farmacia,202);
+		//
 	}
 
 

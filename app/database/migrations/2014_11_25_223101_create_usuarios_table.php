@@ -17,6 +17,7 @@ class CreateUsuariosTable extends Migration {
             $table->integer('farmacia_id')->unsigned();
             $table->foreign('farmacia_id')->references('id')->on('farmacias')->onDelete('cascade');
             $table->string('user',32);
+            $table->string('email', 100)->unique();
             $table->string('password');
             $table->integer('tipousuarios_id')->unsigned();
             $table->foreign('tipousuarios_id')->references('id')->on('tipousuarios')->onDelete('cascade');

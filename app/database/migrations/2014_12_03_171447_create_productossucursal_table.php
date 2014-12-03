@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRequisicionTable extends Migration {
+class CreateProductossucursalTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,21 +12,14 @@ class CreateRequisicionTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('requisicion',function($table){
+        Schema::create('productossucursal',function($table){
             $table->increments('id');
-            
-            /** BORRAR
-            $table->date('fecha');
-            **/
-            
-            /** AGREGAR
-            $table->timestamps('fecha');
-            **/
-            
+            $table->integer('productosfarmacia_id')->unsigned();
+            $table->foreign('productosfarmacia_id')->references('id')->on('productosfarmacia')->onDelete('cascade');
             $table->integer('sucursales_id')->unsigned();
             $table->foreign('sucursales_id')->references('id')->on('sucursales')->onDelete('cascade');
-			$table->integer('sucursales_2_id')->unsigned();
-            $table->foreign('sucursales_2_id')->references('id')->on('sucursales')->onDelete('cascade');
+            $table->string('ubicacion',20);
+            $table->integer('cantidad');
 			$table->softDeletes();
             $table->timestamps();
         });
@@ -39,7 +32,7 @@ class CreateRequisicionTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('requisicion');
+		Schema::drop('productossucursal');
 	}
 
 }

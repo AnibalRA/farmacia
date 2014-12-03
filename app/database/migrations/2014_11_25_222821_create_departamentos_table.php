@@ -15,8 +15,12 @@ class CreateDepartamentosTable extends Migration {
 		Schema::create('departamentos', function($table) {
 			$table->increments('id');
 			$table->string('nombre',30);
+            
+            /** ESTAS DOS LINEAS HAY QUE BORRARLAS
             $table->integer('pais_id')->unsigned();
             $table->foreign('pais_id')->references('id')->on('pais')->onDelete('cascade');
+            **/
+            
 			$table->softDeletes();
 			$table->timestamps();
 		});

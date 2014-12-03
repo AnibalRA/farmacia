@@ -14,7 +14,15 @@ class CreateComprasTable extends Migration {
 	{
 		Schema::create('compras',function($table) {
             $table->increments('id');
+            
+            /** BORRAR
             $table->date('fecha');
+            **/
+            
+            /** AGREGAR
+            $table->timestamps('fecha');
+            **/
+            
             $table->string('factura', 20);
             $table->integer('proveedores_id')->unsigned();
             $table->foreign('proveedores_id')->references('id')->on('proveedores')->onDelete('cascade');

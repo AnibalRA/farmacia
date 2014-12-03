@@ -9,7 +9,10 @@ class UserController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+        $users = User::where('farmacia_id', Auth::user()->farmacia->id)
+        				->orderBy('created_at','dsc')
+        				->get();
+        return Response::json($users, 200);
 	}
 
 
@@ -19,8 +22,8 @@ class UserController extends \BaseController {
 	 * @return Response
 	 */
 	public function create()
-	{
-		//
+	{  
+        //
 	}
 
 
@@ -31,7 +34,18 @@ class UserController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$data = Input::all();
+		$user = new User;
+		if($user->guardar($data))
+			return Response::json($user,201);
+		$errores = [];
+		foreach ($user->errores->all() as $error) {
+			$errores[] = array(
+					'type' => "danger",
+					'msg'	=> $error
+				);
+		}
+		return Response::json($errores, 200);
 	}
 
 
@@ -43,7 +57,7 @@ class UserController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+        //
 	}
 
 
@@ -55,7 +69,7 @@ class UserController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+        //
 	}
 
 
@@ -67,7 +81,18 @@ class UserController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+        $data = Input::all();
+		$user = User::find($id);
+		if($user->guardar($data))
+			return Response::json($user,202);
+		$errores = [];
+		foreach ($user->errores->all() as $error) {
+			$errores[] = array(
+					'type' => "danger",
+					'msg'	=> $error
+				);
+		}
+		return Response::json($errores, 200);
 	}
 
 

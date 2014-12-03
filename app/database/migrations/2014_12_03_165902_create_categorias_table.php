@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLaboratoriosTable extends Migration {
+class CreateCategoriasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,9 @@ class CreateLaboratoriosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('laboratorios',function($table) {
+		Schema::create('categorias',function($table){
             $table->increments('id');
-            $table->string('nombre',100);
-            $table->integer('farmacia_id')->unsigned();
-            $table->foreign('farmacia_id')->references('id')->on('farmacias')->onDelete('cascade');
+            $table->string('nombre',15);
 			$table->softDeletes();
             $table->timestamps();
         });
@@ -29,7 +27,7 @@ class CreateLaboratoriosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('laboratorios');
+		Schema::drop('categorias');
 	}
 
 }

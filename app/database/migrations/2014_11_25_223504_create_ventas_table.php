@@ -14,8 +14,16 @@ class CreateVentasTable extends Migration {
 	{
 		Schema::create('ventas',function($table) {
             $table->increments('id');
-            $table->date('fecha');
-            $table->integer('factura');
+            
+            /** BORRAR
+            $table->datetime('fecha');
+            **/
+            
+            /** AGREGAR
+            $table->timestamps('fecha');
+            **/
+            
+            $table->string('factura',20);
             $table->integer('sucursales_id')->unsigned();
             $table->foreign('sucursales_id')->references('id')->on('sucursales')->onDelete('cascade');
             $table->integer('clientes_id')->unsigned();
