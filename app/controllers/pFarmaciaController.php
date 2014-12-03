@@ -9,7 +9,7 @@ class pFarmaciaController extends \BaseController {
 	 */
 	public function index()
 	{
-        $pfarmacia = Pfarmacia::where('farmacia_id', Auth::user()->farmacia->id)
+        $pfarmacia = ProductoFarmacia::where('farmacia_id', Auth::user()->farmacia->id)
             ->orderBy('created_at','dsc')
             ->get();
         return Response::json($pfarmacias, 200);
@@ -34,7 +34,18 @@ class pFarmaciaController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$data = Input::all();
+		$pfarmacia = new ProductoFarmacia;
+		if($pfarmacia->guardar($data))
+			return Response::json($pfarmacia,201);
+		$errores = [];
+		foreach ($pfarmacia->errores->all() as $error) {
+			$errores[] = array(
+					'type' => "danger",
+					'msg'	=> $error
+				);
+		}
+		return Response::json($errores, 200);
 	}
 
 
@@ -70,7 +81,18 @@ class pFarmaciaController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+        $data = Input::all();
+		$pfarmacia = ProdutoFarmacia::find($id);
+		if($pfarmacia->guardar($data))
+			return Response::json($farmacia,202);
+		$errores = [];
+		foreach ($pfarmacia->errores->all() as $error) {
+			$errores[] = array(
+					'type' => "danger",
+					'msg'	=> $error
+				);
+		}
+		return Response::json($errores, 200);
 	}
 
 
@@ -82,7 +104,9 @@ class pFarmaciaController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+        $pfarmacia = ProductoFarmacia::find($id);
+		$pfarmacia->delete();
+        return Response::json($pfarmacia,202);
 	}
 
 
