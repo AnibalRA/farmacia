@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 class ProductoController extends \BaseController {
@@ -114,14 +113,3 @@ class ProductoController extends \BaseController {
 
 
 }
-=======
-<?
-
-
-class ProductoController extends BaseController{
-	function all(){
-		$productos = Producto::where('farmacia_id',1)->get();
-    	return Response::json($productos, 200);
-	}
-}
->>>>>>> fa997bf264263a17031f755c528ce3c90bffc159
