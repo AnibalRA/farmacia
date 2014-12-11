@@ -27,6 +27,10 @@ var app = angular.module('farmacia', [
 					controller:'productoController',
 					templateUrl: 'assets/js/templates/productos.html'
 				})
+				.when('/farmacias',{
+					controller 	: 'farmaciaController',
+					templateUrl	: 'assets/js/templates/farmacias.html'
+ 				})
 				.otherwise({
 					redirectTo: '/'
 				})

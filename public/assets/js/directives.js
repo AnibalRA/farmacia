@@ -13,12 +13,6 @@ angular.module('farmaciaDirectives', [])
 	}
 })
 
-.directive('addFarmacia', function(){
-	return {
-		restrict: 'E',
-		templateUrl: 'assets/js/views/add-farmacia.html'
-	}
-})
 .directive('addProveedor', function(){
 	return {
 		restrict: 'E',
@@ -32,7 +26,13 @@ angular.module('farmaciaDirectives', [])
 })
 
 
-
+//productos
+.directive('addProducto', function(){
+	return{
+		restrict: 'E',
+		templateUrl: 'assets/js/views/producto/add-producto.html'
+	}
+})
 
 .directive('alerts',function(){
 	return {
@@ -41,4 +41,11 @@ angular.module('farmaciaDirectives', [])
 	}
 })
 
+
+.directive('addFarmacia', function(){
+	return {
+		restrict 	: 'E',
+		templateUrl : 'assets/js/views/farmacia/add-farmacia.html'
+	}
+})
 

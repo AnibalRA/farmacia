@@ -24,6 +24,7 @@ class Farmacia extends Eloquent {
             {
                 $this->fill($datos);
                 $this->save();
+                return true;
             }
 
             return false;
@@ -39,7 +40,7 @@ class Farmacia extends Eloquent {
                 'direccion' => 'required',
                 'nombre' => 'required',
                 'telefono' => 'required',
-                'email' => 'email|required|max:75|unique:farmacias',
+                // 'email' => 'email|required|max:75|unique:farmacias',
                 'municipios_id' => 'required'
             );
             

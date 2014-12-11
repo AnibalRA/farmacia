@@ -18,7 +18,7 @@
 
                         </ng-view> 
             </section>
-
+            <div ng-controller="guardarController"></div>
             @include("index/librerias_js")
         </section>
 
@@ -41,8 +41,11 @@
 
 
         <script type="text/ng-template" id="addProveedorModal.html">
-        <!-- Alerta -->
             <add-proveedor> </add-proveedor>
+        </script>
+
+        <script type="text/ng-template" id="addProductoModal.html">
+            <add-producto> </add-producto>
         </script>
     </body>
 </html>

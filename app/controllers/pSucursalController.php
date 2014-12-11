@@ -10,7 +10,7 @@ class pSucursalController extends \BaseController {
    public function index()
    {
         //
-        $productosSucursal = ProductoSucursal::where('sucursales_id', Auth::user()->sucursal->id)
+        $productosSucursal = ProductoSucursal::where('sucursales_id', 1)//Auth::user()->sucursal->id)
                             ->orderBy('created_at','dsc')
                             ->get();
         return Response::json($productosSucursal, 200);

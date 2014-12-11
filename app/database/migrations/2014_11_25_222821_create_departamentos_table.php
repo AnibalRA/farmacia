@@ -18,8 +18,8 @@ class CreateDepartamentosTable extends Migration {
             
             /** ESTAS DOS LINEAS HAY QUE BORRARLAS
             $table->integer('pais_id')->unsigned();
-            $table->foreign('pais_id')->references('id')->on('pais')->onDelete('cascade');
             **/
+            $table->foreign('pais_id')->references('id')->on('pais')->onDelete('cascade');
             
 			$table->softDeletes();
 			$table->timestamps();

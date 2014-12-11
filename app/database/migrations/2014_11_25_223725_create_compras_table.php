@@ -19,9 +19,9 @@ class CreateComprasTable extends Migration {
             $table->date('fecha');
             **/
             
-            /** AGREGAR
-            $table->timestamps('fecha');
-            **/
+             // AGREGAR
+            $table->timestamp('fecha');
+            
             
             $table->string('factura', 20);
             $table->integer('proveedores_id')->unsigned();

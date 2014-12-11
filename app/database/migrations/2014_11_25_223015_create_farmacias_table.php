@@ -17,8 +17,8 @@ class CreateFarmaciasTable extends Migration {
 			$table->string('nombre',100);
 			$table->text('direccion');
 			$table->string('telefono', 10);
-			$table->string('web',75)->unique();
-			$table->string('email', 100)->unique();
+			$table->string('web',75);//->unique();
+			$table->string('email', 100);//->unique();
             $table->integer('municipios_id')->unsigned();
             $table->foreign('municipios_id')->references('id')->on('municipios')->onDelete('cascade');
             $table->boolean('activa');

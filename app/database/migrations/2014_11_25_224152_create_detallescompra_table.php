@@ -27,10 +27,10 @@ class CreateDetallescompraTable extends Migration {
             $table->integer('laboratorios_id')->unsigned();
             $table->foreign('laboratorios_id')->references('id')->on('laboratorios')->onDelete('cascade');
 
-            /** AGREGAR ESTAS 2 LINEAS
+            // / AGREGAR ESTAS 2 LINEAS
             $table->integer('productos_farmacia_id')->unsigned();
             $table->foreign('productos_farmacia_id')->references('id')->on('productos_farmacia')->onDelete('cascade');
-            **/
+            
             
             $table->softDeletes();
             $table->timestamps();

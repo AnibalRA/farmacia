@@ -22,10 +22,10 @@ class CreateProductosTable extends Migration {
             $table->foreign('farmacia_id')->references('id')->on('farmacias')->onDelete('cascade');
             **/
 
-            /** AGREGAR ESTAS 2 LINEAS
+            // AGREGAR ESTAS 2 LINEAS
             $table->integer('categoria_id')->unsigned();
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
-            **/
+            
             
             $table->softDeletes();
             $table->timestamps();

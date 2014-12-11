@@ -19,9 +19,9 @@ class CreateRequisicionTable extends Migration {
             $table->date('fecha');
             **/
             
-            /** AGREGAR
-            $table->timestamps('fecha');
-            **/
+            // AGREGAR
+            $table->timestamp('fecha');
+            
             
             $table->integer('sucursales_id')->unsigned();
             $table->foreign('sucursales_id')->references('id')->on('sucursales')->onDelete('cascade');

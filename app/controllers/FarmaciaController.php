@@ -9,9 +9,10 @@ class FarmaciaController extends \BaseController {
 	 */
 	public function index()
 	{
-        $farmacias = Farmacia::where('farmacia_id', 1)
-        				->orderBy('created_at','dsc')
-        				->get();
+        $farmacias = Farmacia//::where('farmacia_id', 1)
+        					::all();
+        				// ->orderBy('created_at','dsc')
+        				// ->get();
         return Response::json($farmacias, 200);
 	}
 
@@ -35,7 +36,11 @@ class FarmaciaController extends \BaseController {
 	public function store()
 	{
 		$data = Input::all();
-		$farmacia = new Farmacia;
+
+		if(!empty($data['id']))		
+			$farmacia = Farmacia::find($data['id']);
+		else
+			$farmacia = new Farmacia;
 		if($farmacia->guardar($data))
 			return Response::json($farmacia,201);
 		$errores = [];

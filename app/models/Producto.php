@@ -8,7 +8,9 @@ class Producto extends Eloquent {
 	protected $fillable = array(
         'nombre',
         'descripcion',
-        'farmacia_id'
+        'farmacia_id',
+        'minimo',
+        'ubicacion'
     ); 
 
 
@@ -20,6 +22,7 @@ class Producto extends Eloquent {
             {
                 $this->fill($datos);
                 $this->save();
+                return true;
             }
 
             return false;
@@ -32,7 +35,8 @@ class Producto extends Eloquent {
         {        
             $reglas = array(
                 'nombre' => 'required|max:100',
-                'farmacia_id' => 'required'
+                'farmacia_id' => 'required',
+                'minimo' => 'required|integer'
             );
 
             $validador = Validator::make($datos,$reglas);

@@ -25,18 +25,18 @@
         </div>
         
         <!-- Feeds -->
-        <div class="s-widget m-b-25">
+        <div class="s-widget m-b-25" ng-controller="modalController">
             <h2 class="tile-title">
               Accesos directos
             </h2>
-             <div class="s-widget-body" ng-controller="clienteController">
-                <a id="news-feed" href="" ng-click='open()'>Nuevo Cliente</a>
+             <div class="s-widget-body" >
+                <a id="news-feed" href="" ng-click="open('addClienteModal', 'clienteController')">Nuevo Cliente</a>
             </div>
-             <div class="s-widget-body" ng-controller="proveedorController">
-                <a id="news-feed" href="" ng-click='open()'>Nuevo Proveedor</a>
+             <div class="s-widget-body">
+                <a id="news-feed" href="" ng-click="open('addProveedorModal', 'proveedorController')">Nuevo Proveedor</a>
             </div>
-             <div class="s-widget-body" ng-controller="productoController">
-                <a id="news-feed" href="" ng-click='open()'>Nuevo Producto</a>
+             <div class="s-widget-body">
+                <a id="news-feed" href="" ng-click="open('addProductoModal', 'productoController')">Nuevo Producto</a>
             </div>
 
         </div>
@@ -113,6 +113,11 @@
         <li>
             <a class="sa-side-widget" href="#proveedores">
                 <span class="menu-item">Proveedores</span>
+            </a>
+        </li>
+        <li>
+            <a class="sa-side-widget" href="#farmacias">
+                <span class="menu-item">Farmacias</span>
             </a>
         </li>
         <li class="dropdown">

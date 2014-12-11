@@ -15,7 +15,7 @@ Route::any('/', function() {
 });
 
 Route::group(array('prefix' => 'api'), function() {
-    Route::resource('farmacia','FarmaciaController');
+    Route::resource('farmacias','FarmaciaController');
     Route::resource('sucursales','SucursalesController');
     Route::resource('perfil','UserController');
     Route::resource('proveedores','ProveedorController');
@@ -25,8 +25,12 @@ Route::group(array('prefix' => 'api'), function() {
 
     Route::resource('clientes','clienteController');
 
-    //ruta para los productos
-    Route::get("productos", 'ProductoController@all');
+    Route::controller('direccion', 'apiController');
+
+    // //ruta para los productos
+    // Route::get("productos", 'ProductoController@all');
+    // Route::post("productos", 'ProductoController@save');
+    Route::resource('productos', 'pSucursalController');
 });
 
 Route::any('{path?}', function($path) {

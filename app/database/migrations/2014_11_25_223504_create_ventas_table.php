@@ -19,9 +19,9 @@ class CreateVentasTable extends Migration {
             $table->datetime('fecha');
             **/
             
-            /** AGREGAR
-            $table->timestamps('fecha');
-            **/
+	            // AGREGAR
+            $table->timestamp('fecha');
+            
             
             $table->string('factura',20);
             $table->integer('sucursales_id')->unsigned();

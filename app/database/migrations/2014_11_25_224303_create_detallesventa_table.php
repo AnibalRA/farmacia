@@ -24,10 +24,10 @@ class CreateDetallesventaTable extends Migration {
             $table->foreign('productos_id')->references('id')->on('productos')->onDelete('cascade');
             **/
             
-            /** AGREGAR ESTAS 2 LINEAS
+            // AGREGAR ESTAS 2 LINEAS
             $table->integer('productos_farmacia_id')->unsigned();
             $table->foreign('productos_farmacia_id')->references('id')->on('productos_farmacia')->onDelete('cascade');
-            **/
+            
             
             $table->softDeletes();
             $table->timestamps();

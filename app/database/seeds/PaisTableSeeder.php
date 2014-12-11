@@ -4,7 +4,7 @@ class PaisTableSeeder extends Seeder
     public function run() 
     {
         Pais::create(array(
-            "nombre" => "ElSalvador"
+            "nombre" => "El Salvador"
         ));
     }
 }
