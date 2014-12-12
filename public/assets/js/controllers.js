@@ -146,8 +146,9 @@ angular.module('farmaciaControllers', []).
 			$scope.farmacia.municipios_id = 1;
 			$scope.farmacia.activa = 1;
 			farmaciaService.add($scope.farmacia).then(function(data){
-				$log.info(data)
-				$scope.farmacia = {};
+				// $log.info(data)
+				$scope.farmacias = $scope.farmacias.concat(data)
+				// $scope.farmacia = {};
 			},function(data){
 				$scope.alerts = data
 			})	
