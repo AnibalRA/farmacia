@@ -19,14 +19,8 @@ class CreateDetallesventaTable extends Migration {
             $table->integer('cantidad');
             $table->double('precio',6,2);
             
-            /** ESTAS DOS LINEAS HAY QUE BORRARLAS
-            $table->integer('productos_id')->unsigned();
-            $table->foreign('productos_id')->references('id')->on('productos')->onDelete('cascade');
-            **/
-            
-            // AGREGAR ESTAS 2 LINEAS
             $table->integer('productos_farmacia_id')->unsigned();
-            $table->foreign('productos_farmacia_id')->references('id')->on('productos_farmacia')->onDelete('cascade');
+            // $table->foreign('productos_farmacia_id')->references('id')->on('productos_farmacia')->onDelete('cascade');
             
             
             $table->softDeletes();

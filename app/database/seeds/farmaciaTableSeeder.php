@@ -1,4 +1,4 @@
-farmaciaTableSeeder.php    <?php
+<?php
     // file: app/database/seeds/PollsTableSeeder.php
      
     use Faker\Factory as Faker;

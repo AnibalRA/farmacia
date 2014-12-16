@@ -14,14 +14,9 @@ class CreateComprasTable extends Migration {
 	{
 		Schema::create('compras',function($table) {
             $table->increments('id');
-            
-            /** BORRAR
-            $table->date('fecha');
-            **/
-            
+                        
              // AGREGAR
             $table->timestamp('fecha');
-            
             
             $table->string('factura', 20);
             $table->integer('proveedores_id')->unsigned();

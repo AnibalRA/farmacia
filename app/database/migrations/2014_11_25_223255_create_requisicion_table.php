@@ -15,13 +15,8 @@ class CreateRequisicionTable extends Migration {
 		Schema::create('requisicion',function($table){
             $table->increments('id');
             
-            /** BORRAR
-            $table->date('fecha');
-            **/
-            
             // AGREGAR
             $table->timestamp('fecha');
-            
             
             $table->integer('sucursales_id')->unsigned();
             $table->foreign('sucursales_id')->references('id')->on('sucursales')->onDelete('cascade');

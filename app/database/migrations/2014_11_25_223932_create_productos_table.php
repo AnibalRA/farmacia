@@ -17,15 +17,8 @@ class CreateProductosTable extends Migration {
             $table->string('nombre',100);
             $table->text('descripcion');
 
-            /** ESTAS DOS LINEAS HAY QUE BORRARLAS
-            $table->integer('farmacia_id')->unsigned();
-            $table->foreign('farmacia_id')->references('id')->on('farmacias')->onDelete('cascade');
-            **/
-
-            // AGREGAR ESTAS 2 LINEAS
-            $table->integer('categoria_id')->unsigned();
-            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
-            
+            $table->integer('subcategoria_id')->unsigned();
+            // $table->foreign('subcategoria_id')->references('id')->on('subcategoria')->onDelete('cascade');
             
             $table->softDeletes();
             $table->timestamps();

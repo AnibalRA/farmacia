@@ -4,7 +4,7 @@ class SubcategoriaTableSeeder extends Seeder
     public function run() 
     {
         $subCategorias = [
-            "Antihelmínticos" => "1"
+            "Antihelmínticos" => "1",
             "Antiprotozoarios (antiamibianos y antigiardiásicos)" => "1",
             "Antimaláricos" => "1",
             "Antitoxoplasma" => "1",
@@ -119,7 +119,7 @@ class SubcategoriaTableSeeder extends Seeder
         
 
         foreach($subCategorias as $subcategoria => $idcategoria) {
-            Municipios::create(array(
+            SubCategoria::create(array(
                 "nombre" => $subcategoria,
                 "categoria_id" => $idcategoria
             ));            
