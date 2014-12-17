@@ -24,13 +24,14 @@ Route::group(array('prefix' => 'api'), function() {
     Route::resource('pSucursal','pSucursalController');
 
     Route::resource('clientes','clienteController');
+    Route::resource('categorias','CategoriasController');
 
     Route::controller('direccion', 'apiController');
 
     // //ruta para los productos
     // Route::get("productos", 'ProductoController@all');
     // Route::post("productos", 'ProductoController@save');
-    Route::resource('productos', 'pSucursalController');
+    Route::resource('productos', 'ProductoController');
 });
 
 Route::any('{path?}', function($path) {

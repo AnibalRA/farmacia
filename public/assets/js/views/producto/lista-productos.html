@@ -1,0 +1,22 @@
+<div class="block-area" id="defaultStyle">
+	<div class="table-responsive overflow">
+		<table class="table table-bordered table-hover tile">
+			<thead>
+				<tr>
+					<td>Nombre</td>
+					<td>Descripcion</td>
+					<td>Categoria</td>
+					<td>Sub Categoria</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="producto in productos">
+					<td>{{producto.producto}}</td>
+					<td>{{producto.descripcion}}</td>
+					<td>{{producto.categoria}}</td>
+					<td>{{producto.subcategoria}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

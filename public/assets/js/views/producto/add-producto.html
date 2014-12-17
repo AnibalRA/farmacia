@@ -1,41 +1,58 @@
  
-<form class="form-horizontal" role="form">
-    <div class="modal-header text-center">
-        <h3 class="modal-title">Nuevo Producto</h3>
-    </div>
-    <div class="modal-body">    
+<form class="form-horizontal" role="form" ng-submit="guardar()">
+       
         <alerts> </alerts>
                <div class="row">
                   <div class="col-xs-12">
-                       <div class="form-group">
-                         <label for="nombre" class="col-sm-2 control-label">Nombre</label>
+
+                    
+                     <div class="form-group">
+                       <label for="cat" class="col-sm-2 control-label">Categoria</label>
+                       <div class="col-sm-10">
+                         <select id="cat" class="form-control" ng-options="cat.nombre for cat in categorias track by cat.id" ng-model="categoria" ng-change='subCats(categoria.id)'> </select>
+                       </div>
+                     </div>
+
+                     <div class="form-group">
+                       <label for="subcat" class="col-sm-2 control-label">Sub Categoria</label>
+                       <div class="col-sm-10">
+                         <select id="subcat" class="form-control" ng-options="subcat.nombre for subcat in subCategorias track by subcat.id" ng-model="subCategoria"> </select>
+                       </div>
+                     </div>
+
+<!-- <select ng-options="item.subItem as item.label for item in values track by item.id" ng-model="categoria"> -->
+
+                      
+                     <div class="form-group">
+                       <label for="nombre" class="col-sm-2 control-label">Nombre</label>
+                       <div class="col-sm-10">
+                         <input type="text" class="form-control" id="nombre" placeholder="Nombre de producto" ng-model = "producto.nombre"required>
+                       </div>
+                     </div>
+
+
+
+                      <div class="form-group">
+                         <label for="descripcion" class="col-sm-2 control-label">Descripción</label>
                          <div class="col-sm-10">
-                           <input type="text" class="form-control" id="nombre" placeholder="Nombre de producto" required>
+                           <input type="textarea" rows="3" class="form-control" placeholder="Descripción" ng-model="producto.descripcion" required>
                          </div>
+                     </div>
+                     <div class="form-group">
+                       <label for="minimo" class="col-sm-2 control-label">Minimo</label>
+                       <div class="col-sm-10">
+                         <input type="text" class="form-control" id="minimo" placeholder="Cantidad minima" ng-model = "producto.minimo"required>
                        </div>
-                        <div class="form-group">
-                           <label for="descripcion" class="col-sm-2 control-label">Descripción</label>
-                           <div class="col-sm-10">
-                             <input type="textarea" rows="3" class="form-control" placeholder="Descripción">
-                           </div>
+                     </div>
+                     <div class="form-group">
+                       <label for="ubicacion" class="col-sm-2 control-label">Ubicación</label>
+                       <div class="col-sm-10">
+                         <input type="text" class="form-control" id="ubicacion" placeholder="Ubicación del producto">
                        </div>
-                       <div class="form-group">
-                         <label for="minimo" class="col-sm-2 control-label">Minimo</label>
-                         <div class="col-sm-10">
-                           <input type="text" class="form-control" id="minimo" placeholder="Cantidad minima" required>
-                         </div>
-                       </div>
-                       <div class="form-group">
-                         <label for="ubicacion" class="col-sm-2 control-label">Ubicación</label>
-                         <div class="col-sm-10">
-                           <input type="text" class="form-control" id="ubicacion" placeholder="Ubicación del producto">
-                         </div>
-                       </div>
+                     </div>
                   </div>
                </div>
-        </div>
-    <div class="modal-footer text-center">
     <input type='submit'  class="btn btn-primary" value="Guardar" />
-</div>
+    <input type='button'  class="btn btn-primary" ng-click="show('lista')" value="Cancelar" />
 
 </form>

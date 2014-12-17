@@ -23,6 +23,7 @@ class Sucursal extends Eloquent {
             {
                 $this->fill($datos);
                 $this->save();
+                return true;
             }
 
             return false;
@@ -34,7 +35,7 @@ class Sucursal extends Eloquent {
         public function validar($datos) 
         {        
             $reglas = array(
-                'email' => 'email|required|max:75|unique:sucursales',
+                'email' => 'email|max:75',
                 'nombre' => 'required',
                 'farmacia_id' => 'required',
                 'municipios_id' => 'required'

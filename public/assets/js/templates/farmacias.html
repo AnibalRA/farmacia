@@ -16,12 +16,23 @@
 <div class="row">
 	<section class="col-md-4">
 		<input type="text" class="main-search pull-left" ng-model='search'>
+    <a class="pull-right" href="" ng-click="show('edit', 0)">
+      <i class="glyphicon glyphicon-plus"></i>
+    </a>
 		<table class="table table-hover">			
 			<tbody>
-				<tr ng-repeat="farmacia in farmacias | filter:search">
+				<tr ng-repeat="farmacia in farmacias | filter:search" ng-mouseenter='visible(true)' ng-mouseleave='visible(false)'>
 					<td>
-						<a href="" ng-click="edit($index)">
+						<a href="">
 							{{farmacia.nombre}}
+                <a class="pull-right" href="" ng-show="options" ng-click= "show('sucursales', farmacia.id)"> 
+                  <i class="glyphicon glyphicon-th-list ">  </i>
+                </a>
+                <a class="pull-right" href="" ng-show="options" ng-click= "show('edit', farmacia.id)"> 
+                  <i class="glyphicon glyphicon-edit ">  </i>
+                </a>
+                
+              </span>
 						</a>
 					</td>
 				</tr>
@@ -30,7 +41,9 @@
 	</section>
 	<section class="col-md-8">
 		<alerts> </alerts>
-		<form class="form-horizontal" role="form" ng-submit="guardar()">
+    <sucursales ng-show="action == 'sucursales'"> </sucursales>
+    <add-farmacia ng-show="action == 'edit'"> </add-farmacia>
+		<!-- <form class="form-horizontal" role="form" ng-submit="guardar()">
                        <div class="form-group">
                          <div class="col-sm-offset-2 col-sm-8">
                            <button type="submit" class="btn btn-default">Guardar</button>
@@ -68,7 +81,7 @@
                            <input type="text" class="form-control" ng-model = "farmacia.email"  placeholder="Correo electronico">
                          </div>
                        </div>
-                     </form>
+                     </form> -->
 
 	</section>
 </div>

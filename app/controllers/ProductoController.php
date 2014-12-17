@@ -10,9 +10,10 @@ class ProductoController extends \BaseController {
    public function index()
    {
         //
-        $productos = Producto::where('farmacia_id', 1)//Auth::user()->sucursal->id)
-                            ->orderBy('created_at','dsc')
-                            ->get();
+        $productos = product::all()//where('farmacia_id', 1)//Auth::user()->sucursal->id)
+                            // ->orderBy('created_at','dsc')
+                            // ->get();
+;
         return Response::json($productos, 200);
    }
 

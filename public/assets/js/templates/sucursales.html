@@ -1,22 +1,12 @@
-<add-sucursal></add-sucursal>
-<button class="btn btn-success" ng-click="newSucursal()">Add</button>
-<table class="table table-hover">
-	<thead>
-		<tr>
-			<td>Nombre</td>
-            <td>Dirección</td>
-			<td>Teléfono</td>
-			<td>Correo Electrónico</td>	
-			<td>Sucursal desde</td>
-		</tr>
-	</thead>
-	<tbody>
-		<tr ng-repeat="sucursal in sucursales">
-			<td>{{sucursal.nombre}}</td>
-            <td>{{sucursal.direccion}}</td>
-			<td>{{sucursal.telefono}}</td>
-			<td>{{sucursal.email}}</td>
-			<td>{{sucursal.created_at | date:'medium'}}</td>
-		</tr>
-	</tbody>
-</table>
+
+<div ng-controller='sucursalController'>
+	
+	<h4>Sucursales <span class="badge">{{sucursales.length}}</span> 
+		<a class="btn btn-primary pull-right" href="" ng-click="show('add')"> Add Sucursal </a>
+	</h4>
+	<p class="alert alert-warning" ng-hide = 'sucursales.length'>
+		No hay ninguna sucursar para esta farmacia
+	</p>
+	<lista-sucursal ng-hide= "action != 'lista' "> </lista-sucursal>
+	<add-sucursal ng-hide="action != 'add' "> </add-sucursal>
+</div>

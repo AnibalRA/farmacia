@@ -47,5 +47,8 @@
         <script type="text/ng-template" id="addProductoModal.html">
             <add-producto> </add-producto>
         </script>
+        <script type="text/ng-template" id="addSucursalModal.html">
+            <add-sucursal> </add-sucursal>
+        </script>
     </body>
 </html>

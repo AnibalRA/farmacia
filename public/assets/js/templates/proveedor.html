@@ -16,7 +16,7 @@
 			<tbody>
 				<tr ng-repeat="proveedor in proveedores | filter:search">
 					<td>
-						<a href="" ng-click="edit($index)">{{proveedor.nombre}}</a>
+						<a href="" ng-click="show(proveedor.id)">{{proveedor.contacto}}</a>
 					</td>
 				</tr>
 			</tbody>

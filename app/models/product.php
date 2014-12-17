@@ -1,0 +1,5 @@
+<?
+
+class product extends Eloquent{
+
+}

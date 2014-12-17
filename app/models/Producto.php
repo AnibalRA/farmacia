@@ -8,8 +8,8 @@ class Producto extends Eloquent {
 	protected $fillable = array(
         'nombre',
         'descripcion',
-        'farmacia_id',
         'minimo',
+        'subcategoria_id',
         'ubicacion'
     ); 
 
@@ -35,7 +35,7 @@ class Producto extends Eloquent {
         {        
             $reglas = array(
                 'nombre' => 'required|max:100',
-                'farmacia_id' => 'required',
+                'subcategoria_id' => 'required',
                 'minimo' => 'required|integer'
             );
 

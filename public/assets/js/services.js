@@ -5,7 +5,7 @@ angular.module('farmaciaServices',[])
 	function get(url){
 		defer = $q.defer();
 
-		$http.get(url)
+		$http.get('api/' + url)
 			.success(function (data){
 				defer.resolve(data);
 			})
@@ -17,7 +17,7 @@ angular.module('farmaciaServices',[])
 
 	function post(url, data){
 		defer = $q.defer();
-		$http.post(url, data)
+		$http.post('api/' + url, data)
 			.success(function (data, code){
 				if(code==201)
 					defer.resolve(data);
@@ -39,11 +39,11 @@ angular.module('farmaciaServices',[])
 
 .factory('clienteService', ['apiService',  function (apiService){
 	function all(){
-		return apiService.get('api/clientes')
+		return apiService.get('clientes')
 	}
 
 	function add(cliente){
-		return apiService.post('api/clientes', cliente)
+		return apiService.post('clientes', cliente)
 	}
 	return {
 		all : all,
@@ -53,11 +53,11 @@ angular.module('farmaciaServices',[])
 
 .factory('proveedorService', ['apiService', function (apiService){
 	function all(){
-		return apiService.get('api/proveedores')
+		return apiService.get('proveedores')
 	}
 
 	function add(proveedor){
-		return apiService.post('api/proveedores', proveedor)
+		return apiService.post('proveedores', proveedor)
 	}
 	return {
 		all : all,
@@ -68,15 +68,25 @@ angular.module('farmaciaServices',[])
 .factory('productoService',['apiService', function (apiService){
 
 	function all(){
-		return apiService.get('api/productos')
+		return apiService.get('productos')
 	}
 
 	function add(producto){
-		return apiService.post('api/productos', producto)
+		return apiService.post('productos', producto)
 	}
+
+	function categorias(){
+		return apiService.get('categorias');
+	}
+	function subCategorias(idCat){
+		return apiService.get('categorias/' + idCat);
+	}
+
 	return {
-		all : all,
-		add : add
+		all 			: all,
+		add 			: add,
+		categorias 		: categorias,
+		subCategorias	: subCategorias,
 	}
 }])
 
@@ -84,11 +94,11 @@ angular.module('farmaciaServices',[])
 
 .factory('direccionService', ['apiService', function(apiService){
 	function departamentos(){
-		return apiService.get('api/direccion/departamentos');
+		return apiService.get('direccion/departamentos');
 	}
 
 	function municipios(id){
-		return apiService.get('api/direccion/municipios/' + id);
+		return apiService.get('direccion/municipios/' + id);
 	}
 	return {
 		departamentos: departamentos,
@@ -98,13 +108,48 @@ angular.module('farmaciaServices',[])
 
 .factory('farmaciaService', ['apiService', function (apiService){
 	function all(){
-		return apiService.get('api/farmacias');
+		return apiService.get('farmacias');
 	}
 	function add(farmacia){
-		return apiService.post('api/farmacias', farmacia)
+		return apiService.post('farmacias', farmacia)
+	}
+	function sucursales(idFarmacia){
+		return apiService.get('sucursales/' + idFarmacia);
 	}
 	return {
-		all	: all,
+		all			: all,
+		add 		: add,
+		sucursales 	: sucursales
+	}
+}])
+
+.factory('sucursalService', ['apiService', function(apiService){
+	function add(sucursal){
+		return apiService.post('sucursales', sucursal);
+	}
+	return {
 		add : add
 	}
 }])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

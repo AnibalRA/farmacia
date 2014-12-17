@@ -56,10 +56,10 @@ angular.module('farmaciaControllers', []).
 
 	.controller('proveedorController',['proveedorService', '$scope',  '$modal', '$log', 'direccionService',
 		function (proveedorService, $scope, $modal, $log, direccionService){
-			$scope.proveedores = []
+			// $scope.proveedores = []
 			proveedorService.all().then(
 				function (data){
-					$log.info('inf recibida')
+					$log.info(data)
 					$scope.proveedores = data;
 				},
 				function (data){
@@ -69,6 +69,15 @@ angular.module('farmaciaControllers', []).
 				}
 			)
 
+			$scope.show = function (id){
+				result = $scope.proveedores.filter(function (proveedor){
+					return proveedor.id === id;
+				});
+				$scope.proveedor = result[0];
+				// $scope.proveedor = $scope.proveedores[id]
+				$log.info(id)
+				$log.info($scope.proveedor)
+			}
 			// $scope.departamento = [];
 			// $scope.municipio = [];
 
@@ -85,25 +94,34 @@ angular.module('farmaciaControllers', []).
 
 	}])
 
-	.controller('productoController', ['productoService','$scope','$modal', function(productoService, $scope, $modal){
+	.controller('productoController', ['productoService','$scope','$modal', '$log', function(productoService, $scope, $modal, $log){
 		$scope.productos = [];
+		$scope.mostrar = 'lista' 
 		productoService.all().then(function (data){
 			$scope.productos = data;
+			productoService.categorias().then(function (data){
+				$scope.categorias = data;
+			})
 		})
+		$scope.subCats = function(idCat){
+			productoService.subCategorias(idCat).then(function (data){
+				$scope.subCategorias = data;
+				$log.info(data)
+			})
+		}
+
 		$scope.guardar = function(){
-			// clientesService.add($scope.cliente).then(
-			// 	function (data){					
-			// 		$scope.alerts = [{
-			// 				'type' 	: 'success',
-			// 				'msg'	: 'Proceso exitoso!!!'
-			// 			}]
-			// 		$scope.clientes.push(data)
-			// 		$scope.cliente = [];
-			// 	},
-			// 	function (data){
-			// 		$scope.alerts = data;
-			// 	}
-			// )
+			$scope.producto.subcategoria_id = $scope.subCategoria.id;
+			$log.info($scope.producto)
+			productoService.add($scope.producto).then(function (data){
+				$scope.producto = {};
+				$log.info(data)
+			},function (data){
+				$scope.alerts = data
+			})
+		}
+		$scope.show = function (visible){
+			$scope.mostrar = visible;
 		}
 	}])
 	.controller('modalController',['$modal', '$scope', '$log', function($modal, $scope, $log){
@@ -126,17 +144,46 @@ angular.module('farmaciaControllers', []).
 
 	.controller('farmaciaController', ['$scope', '$log', 'farmaciaService', function($scope, $log, farmaciaService){
 		
-		accion = 'nuevo';
+		function init(){
+			accion = 'nuevo';
+			$scope.options = false;
+			$scope.action = 'sucursales';
+			$scope.farmacias = [];
+			$scope.farmacia = {};
+			
+			farmaciaService.all().then(function(data){
+				$scope.farmacias = data;
+				$scope.farmacia = $scope.farmacias[0];
+				showSucursales($scope.farmacia.id);
+			})
+		}
 
-		$scope.farmacias = [];
-		$scope.farmacia = {};
-		farmaciaService.all().then(function(data){
-			$scope.farmacias = data;
-		})
+		$scope.show  = function (show, id){
+			$scope.action = show;
+			// $log.info(id)
+			if(show == 'sucursales')
+				showSucursales(id);
+			// else
+				edit(id)
+		}
 
-		$scope.edit = function (index){
-			$scope.farmacia = $scope.farmacias[index];
-			accion = 'editar'
+		function showSucursales(id){
+			farmaciaService.sucursales(id).then(function(data){
+				$scope.sucursales = data;
+			})
+		}
+
+		function edit (id){
+			// $scope.farmacia = $scope.farmacias[index];
+			// accion = 'editar'
+			result = $scope.farmacias.filter(function (farmacia){
+				return farmacia.id === id;
+			});
+			$scope.farmacia = result[0];
+
+			$log.info(id)
+			$log.info($scope.farmacia)
+
 		}	
 		$scope.nuevo = function(){
 			$scope.farmacia = {};
@@ -154,8 +201,58 @@ angular.module('farmaciaControllers', []).
 			})	
 		}
 
+		$scope.visible  = function(visible){
+			this.options = visible;
+		}
+
+		init() //Inicializando todas las variasbles
+
 	}])
 
+
+	.controller('sucursalController',['$scope','$log', 'sucursalService', function($scope, $log, sucursalService){
+		$scope.action = 'lista';
+		$scope.opciones = false;
+		$scope.sucursal = {
+			// 'nombre'	: 'Sucursal 1'
+		};
+		$scope.show = function (show){
+			$scope.action = show
+		}
+
+		$scope.cancel = function(){
+			$scope.show('lista')
+		}
+		$scope.edit = function(id){
+			result = $scope.sucursales.filter(function (sucursal){
+						return sucursal.id === id;
+					});
+			$scope.sucursal = result[0]
+			$log.info($scope.sucursal + " sdf " + id);
+			$scope.show('add')
+		}
+
+		$scope.visible = function(visible){
+			this.opciones = visible;
+		}
+		//function para guardar la sucursal
+		$scope.save = function () {
+			$log.info('saving...')
+			$scope.sucursal.farmacia_id = $scope.farmacia.id;
+			$scope.sucursal.municipios_id = 1;
+			// $log.info($scope.sucursal)
+			sucursalService.add($scope.sucursal).then(function(data){
+				// $log.info(data)
+				$scope.sucursales = $scope.sucursales.concat(data)
+				// $scope.farmacia = {};
+				$log.info(data)
+				$scope.show('lista')
+			},function(data){
+				$log.info('ERROR: ' + data);
+				$scope.alerts = data
+			})	
+		}
+	}])
 
 
 

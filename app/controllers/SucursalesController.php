@@ -10,7 +10,7 @@ class SucursalesController extends \BaseController {
    public function index()
    {
         //
-        $sucursales = Sucursal::where('farmacia_id', Auth::user()->sucursal->id)
+        $sucursales = Sucursal::where('farmacia_id', $id)// Auth::user()->sucursal->id)
                                 ->orderBy('created_at','dsc')
                                 ->get();
                 return Response::json($sucursales, 200);
@@ -39,7 +39,11 @@ class SucursalesController extends \BaseController {
    {
       //
         $data = Input::all();
-        $sucursal = new Sucursal;
+        if(!empty($data['id']))   
+          $sucursal = Sucursal::find($data['id']);
+        else
+          $sucursal = new Sucursal;
+        
         if($sucursal->guardar($data))
             return Response::json($sucursal, 201);
         $errores = [];
@@ -60,8 +64,13 @@ class SucursalesController extends \BaseController {
    public function show($id)
    {
       //
-      $sucursal = Sucursal::find($id)->get();
-      return Response::json($sucursal, 200);
+      // $sucursal = Sucursal::find($id)->get();
+      // return Response::json($sucursal, 200);
+
+    $sucursales = Sucursal::where('farmacia_id', $id)// Auth::user()->sucursal->id)
+                            ->orderBy('created_at','dsc')
+                            ->get();
+    return Response::json($sucursales, 200);
    }
 
 

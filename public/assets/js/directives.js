@@ -33,6 +33,13 @@ angular.module('farmaciaDirectives', [])
 		templateUrl: 'assets/js/views/producto/add-producto.html'
 	}
 })
+//productos
+.directive('listaProductos', function(){
+	return{
+		restrict: 'E',
+		templateUrl: 'assets/js/views/producto/lista-productos.html'
+	}
+})
 
 .directive('alerts',function(){
 	return {
@@ -48,4 +55,25 @@ angular.module('farmaciaDirectives', [])
 		templateUrl : 'assets/js/views/farmacia/add-farmacia.html'
 	}
 })
+
+
+.directive('sucursales', function(){
+	return {
+		restrict : 'E',
+		templateUrl : 'assets/js/templates/sucursales.html'
+	}
+})
+.directive('addSucursal', function(){
+	return{
+		restrict 	: 'E',
+		templateUrl	: 'assets/js/views/sucursal/add-sucursal.html'
+	}
+})
+.directive('listaSucursal', function(){
+	return{
+		restrict 	: 'E',
+		templateUrl	: 'assets/js/views/sucursal/lista-sucursales.html'
+	}
+})
+
 
