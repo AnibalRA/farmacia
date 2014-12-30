@@ -3,6 +3,7 @@ class Sucursal extends Eloquent {
     use SoftDeletingTrait;
     
     protected $table = 'sucursales';
+    protected $appends = ['municipio'];
 	public $errores;
     protected $softDelete = true;
 	protected $fillable = array(
@@ -50,6 +51,10 @@ class Sucursal extends Eloquent {
             return false;
         }
 
+        public function getMunicipioAttribute()
+        {
+            return $this->municipios->nombre;
+        }
 
     /* Relaciones */
 
@@ -66,8 +71,9 @@ class Sucursal extends Eloquent {
         {
             return $this->belongsTo('Farmacia');
         }
-         public function municipio() 
+         public function municipios() 
         {
-            return $this->belongsTo('Municipios');
+            return $this->belongsTo('Municipios', 'municipios_id');
         }
+
 }

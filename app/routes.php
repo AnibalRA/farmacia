@@ -34,6 +34,14 @@ Route::group(array('prefix' => 'api'), function() {
     Route::resource('productos', 'ProductoController');
 });
 
+// Versión Movil
+
+Route::group(['prefix' => 'app'], function(){
+
+    Route::controller('', 'ApiMovilController');
+
+});
+
 Route::any('{path?}', function($path) {
     return Redirect::to('/');
 });

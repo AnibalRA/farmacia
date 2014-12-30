@@ -3,6 +3,7 @@ class Farmacia extends Eloquent {
     use SoftDeletingTrait;
     
     protected $table = 'farmacias';
+    protected $appends = ['municipio'];
 	public $errores;
     protected $softDelete = true;
 	protected $fillable = array(
@@ -53,12 +54,16 @@ class Farmacia extends Eloquent {
             return false;
         }
 
+        public function getMunicipioAttribute()
+        {
+            return $this->municipios->nombre;
+        }
 
     /* Relaciones */
 
-        public function municipio() 
+        public function municipios() 
         {
-            return $this->belongsTo('Venta');
+            return $this->belongsTo('Municipios');
         }
         public function sucursal() 
         {
