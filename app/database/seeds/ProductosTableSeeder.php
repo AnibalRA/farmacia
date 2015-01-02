@@ -9,7 +9,7 @@
     {
     // going 'Faker' :) on the polls table.
         $faker = Faker::create();
-        for($i = 6; $i <= 505 ; $i++)
+        for($i = 1; $i <= 500 ; $i++)
         {
             $producto = new Producto;
 

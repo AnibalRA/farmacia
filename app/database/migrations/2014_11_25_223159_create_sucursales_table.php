@@ -19,9 +19,9 @@ class CreateSucursalesTable extends Migration {
             $table->string('telefono', 10);
             $table->string('email', 100);
             $table->integer('farmacia_id')->unsigned();
-            $table->foreign('farmacia_id')->references('id')->on('farmacias')->onDelete('cascade');
+            // $table->foreign('farmacia_id')->references('id')->on('farmacias')->onDelete('cascade');
 			$table->integer('municipios_id')->unsigned();
-            $table->foreign('municipios_id')->references('id')->on('municipios')->onDelete('cascade');
+            // $table->foreign('municipios_id')->references('id')->on('municipios')->onDelete('cascade');
 			$table->softDeletes();
             $table->timestamps();
         });

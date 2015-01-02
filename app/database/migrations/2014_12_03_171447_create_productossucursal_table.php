@@ -15,10 +15,10 @@ class CreateProductossucursalTable extends Migration {
         Schema::create('productossucursal',function($table){
             $table->increments('id');
             $table->integer('productosfarmacia_id')->unsigned();
-            $table->foreign('productosfarmacia_id')->references('id')->on('productosfarmacia')->onDelete('cascade');
+            // $table->foreign('productosfarmacia_id')->references('id')->on('productosfarmacia')->onDelete('cascade');
             $table->double('precio',6,2);
             $table->integer('sucursales_id')->unsigned();
-            $table->foreign('sucursales_id')->references('id')->on('sucursales')->onDelete('cascade');
+            // $table->foreign('sucursales_id')->references('id')->on('sucursales')->onDelete('cascade');
             $table->string('ubicacion',20);
             $table->integer('cantidad');
 			$table->softDeletes();

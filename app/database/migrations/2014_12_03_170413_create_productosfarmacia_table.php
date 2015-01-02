@@ -12,14 +12,14 @@ class CreateProductosfarmaciaTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('productosfarmacia',function($table){
+        Schema::create('productofarmacia',function($table){
             $table->increments('id');
             $table->integer('cantidad');
             $table->integer('minimo');
             $table->integer('productos_id')->unsigned();
-            $table->foreign('productos_id')->references('id')->on('productos')->onDelete('cascade');
+            // $table->foreign('productos_id')->references('id')->on('productos')->onDelete('cascade');
             $table->integer('farmacia_id')->unsigned();
-            $table->foreign('farmacia_id')->references('id')->on('farmacias')->onDelete('cascade');
+            // $table->foreign('farmacia_id')->references('id')->on('farmacias')->onDelete('cascade');
 			$table->softDeletes();
             $table->timestamps();
         });

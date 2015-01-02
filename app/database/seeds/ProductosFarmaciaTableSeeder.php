@@ -13,8 +13,8 @@
 
             $productoFarmacia->cantidad         = $faker->numberBetween(10,35); 
             $productoFarmacia->minimo           = $faker->numberBetween(1,5);
-            $productoFarmacia->productos_id     = $faker->numberBetween(6,505);
-            $productoFarmacia->farmacia_id      = $faker->numberBetween(1,5); 
+            $productoFarmacia->productos_id     = $faker->numberBetween(1,400);
+            $productoFarmacia->farmacia_id      = $faker->numberBetween(1,4); 
             $productoFarmacia->save();
            	
         }
