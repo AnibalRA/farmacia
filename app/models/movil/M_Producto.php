@@ -1,13 +1,7 @@
 <?php
+
 class M_Producto extends Eloquent {
     
-    protected $table = 'productos';
+    protected $table = 'v_productos';
 
-    /* Relaciones */
-
-        //
-        public function productosFarmacia() 
-        {
-            return $this->hasMany('M_ProductosFarmacia', 'productos_id');
-        }
 }

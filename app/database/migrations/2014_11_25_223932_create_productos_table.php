@@ -19,6 +19,9 @@ class CreateProductosTable extends Migration {
 
             $table->integer('subcategoria_id')->unsigned();
             // $table->foreign('subcategoria_id')->references('id')->on('subcategoria')->onDelete('cascade');
+            $table->string('tipo',100);
+            $table->integer('unidades');
+            $table->string('unidad',100);
             
             $table->softDeletes();
             $table->timestamps();
